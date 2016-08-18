@@ -8,9 +8,9 @@ and Hadoop 2.7.0 libraries.
 #### Install Oozie sharelib to HDFS
 
     docker run -ti --rm \ 
-    andlaz/hadoop-oozie su oozie -c 'oozie-setup.sh sharelib create -fs hdfs://namenode:8020'
+    equemuelcompellon/hadoop-oozie su hadoop -c 'oozie-setup.sh sharelib create -fs hdfs://namenode:8020'
 
 #### Start Ooozie
 
-    docker run -d --name oozie -p 0.0.0.0:11000 -p 0.0.0.0:11001:11001 \
-    andlaz/hadoop-oozie su oozie -c 'oozied.sh run'
+    docker run -d --name oozie -p 11000:11000 -p 11001:11001 \
+    equemuelcompellon/hadoop-oozie su hadoop -c 'oozied.sh run'
